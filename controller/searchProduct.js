@@ -4,28 +4,30 @@ const filterProductController = async (req, res) => {
   try {
     const { category, priceRange, searchQuery } = req.body;
 
-    // Build filter conditions
+    // Xử lý các điều kiện lọc
     const filters = {};
 
-    // If categories are provided, add category filter
+    // Nếu category có giá trị, thêm điều kiện lọc category
     if (category && category.length > 0) {
       filters.category = { "$in": category };
     }
 
-    // If price range is provided, add price range filter
+    // Nếu priceRange có giá trị, thêm điều kiện lọc price
     if (priceRange && priceRange.min !== undefined && priceRange.max !== undefined) {
       filters.price = { "$gte": priceRange.min, "$lte": priceRange.max };
     }
 
-    // If search query is provided, add search filter
+    // Nếu searchQuery có giá trị, thêm điều kiện lọc name
     if (searchQuery && searchQuery.trim() !== "") {
-      filters.name = { "$regex": searchQuery, "$options": "i" };  // Tìm kiếm không phân biệt chữ hoa chữ thường
+      // Làm sạch input trước khi thêm vào query để tránh lỗi và tấn công
+      const sanitizedSearchQuery = searchQuery.replace(/[^\w\s]/gi, '');  // Loại bỏ ký tự đặc biệt
+      filters.name = { "$regex": sanitizedSearchQuery, "$options": "i" };  // Tìm kiếm không phân biệt chữ hoa chữ thường
     }
 
-    // Find products matching the filters
+    // Tìm các sản phẩm khớp với các điều kiện lọc
     const products = await productModel.find(filters);
 
-    // Return the result
+    // Trả về kết quả
     res.json({
       data: products,
       message: "Filtered products",
