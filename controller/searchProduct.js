@@ -2,7 +2,7 @@ const productModel = require("../models/productModel");
 
 const filterProductController = async (req, res) => {
   try {
-    const { category, priceRange } = req.body;
+    const { category, priceRange, searchQuery } = req.body;
 
     // Build filter conditions
     const filters = {};
@@ -15,6 +15,11 @@ const filterProductController = async (req, res) => {
     // If price range is provided, add price range filter
     if (priceRange && priceRange.min !== undefined && priceRange.max !== undefined) {
       filters.price = { "$gte": priceRange.min, "$lte": priceRange.max };
+    }
+
+    // If search query is provided, add search filter
+    if (searchQuery && searchQuery.trim() !== "") {
+      filters.name = { "$regex": searchQuery, "$options": "i" };  // Tìm kiếm không phân biệt chữ hoa chữ thường
     }
 
     // Find products matching the filters
