@@ -53,7 +53,7 @@ async function userSignInController(req, res) {
         const tokenOption = {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production", // Chỉ bật secure khi chạy production
-            sameSite: "strict",
+            sameSite: "None",
         };
 
         // Gửi token và phản hồi
