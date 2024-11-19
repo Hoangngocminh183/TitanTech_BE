@@ -20,7 +20,7 @@ app.use("/api",router)
 // Swagger configuration
 swaggerDocs(app);
 
-const PORT = 8080 || process.env.PORT
+const PORT = process.env.PORT || 8080;
 
 connectBD().then(()=>{
 
