@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:8080/api", // Địa chỉ gốc của API
+        url: "https://titantech-be.onrender.com/api", // Địa chỉ gốc của API
       },
     ],
     components: {

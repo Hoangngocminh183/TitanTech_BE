@@ -7,20 +7,11 @@ const cookieParser = require('cookie-parser')
 const swaggerDocs = require('./config/swagger'); // Import Swagger cấu hình
 const app= express()
 app.use(cors({
-    origin: function (origin, callback) {
-        const allowedOrigins = [
-            'https://titan-tech-fe.vercel.app', 
-            'http://localhost:3000'
-        ];
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true
-}));
 
+    origin : process.env.FRONTEND_URL,
+    credentials : true
+}
+))
 app.use(express.json())
 app.use(cookieParser())
 
