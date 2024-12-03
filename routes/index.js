@@ -562,7 +562,7 @@ router.post("/addtocart", authToken, addToCartController)
  * /countAddToCartProduct:
  *   get:
  *     description: Đếm số lượng sản phẩm trong giỏ hàng
- *      Tags:
+ *      tags:
  *          -Admin
  *     security:
  *       - bearerAuth: []
@@ -577,7 +577,7 @@ router.get("/countAddToCartProduct", authToken, countAddToCartProduct)
  * /view-card-product:
  *   get:
  *     description: Xem danh sách sản phẩm trong giỏ hàng
- *      Tags:
+ *      tags:
  *          -Admin
  *     security:
  *       - bearerAuth: []
@@ -592,7 +592,7 @@ router.get("/view-card-product", authToken, addToCartViewProduct)
  * /update-cart-product:
  *   post:
  *     description: Cập nhật số lượng sản phẩm trong giỏ hàng
- *      Tags:
+ *      tags:
  *          -Admin
  *     security:
  *       - bearerAuth: []
@@ -625,7 +625,7 @@ router.post("/update-cart-product", authToken, updateAddToCartProduct)
  * /delete-cart-product:
  *   post:
  *     description: Xóa sản phẩm khỏi giỏ hàng
- *      Tags:
+ *      tags:
  *          -User
  *     security:
  *       - bearerAuth: []
@@ -651,7 +651,7 @@ router.post("/delete-cart-product", authToken, deleteAddToCartProduct)
  * /search:
  *   get:
  *     description: Tìm kiếm sản phẩm theo từ khóa
- *      Tags:
+ *      tags:
  *          -User
  *     parameters:
  *       - in: query
@@ -674,7 +674,7 @@ router.get("/search", searchProduct)
  * /filter-product:
  *   post:
  *     description: Lọc sản phẩm theo tiêu chí
- *      Tags:
+ *      tags:
  *          -User  
  *     parameters:
  *       - in: body
