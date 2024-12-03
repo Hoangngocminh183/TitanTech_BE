@@ -563,7 +563,7 @@ router.post("/addtocart", authToken, addToCartController)
  *   get:
  *     description: Đếm số lượng sản phẩm trong giỏ hàng
  *     tags:
- *          -Admin
+ *        - User
  *     security:
  *       - bearerAuth: []
  *     responses:
