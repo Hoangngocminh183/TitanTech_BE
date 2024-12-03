@@ -445,7 +445,7 @@ router.post("/category-product", getCategoryWiseProduct)
  *   post:
  *     description: Lấy chi tiết sản phẩm
  *     tags:
- *         -User
+ *       - User
  *     parameters:
  *       - in: body
  *         name: product
@@ -470,7 +470,7 @@ router.post("/product-details", getProductDetails)
  *   get:
  *     description: Tìm kiếm sản phẩm
  *     tags:
- *          -User
+ *       - User
  *     parameters:
  *       - in: query
  *         name: q
@@ -498,7 +498,7 @@ router.get("/search", searchProduct);
  *   post:
  *     description: Lọc sản phẩm theo tiêu chí
  *     tags:
- *          -User
+ *       - User
  *     parameters:
  *       - in: body
  *         name: filters
@@ -533,7 +533,7 @@ router.post("/filter-product", filterProductController)
  *   post:
  *     description: Thêm sản phẩm vào giỏ hàng
  *     tags:
- *          -Admin
+ *       - Admin
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -578,7 +578,7 @@ router.get("/countAddToCartProduct", authToken, countAddToCartProduct)
  *   get:
  *     description: Xem danh sách sản phẩm trong giỏ hàng
  *     tags:
- *          -Admin
+ *       - Admin
  *     security:
  *       - bearerAuth: []
  *     responses:
@@ -593,7 +593,7 @@ router.get("/view-card-product", authToken, addToCartViewProduct)
  *   post:
  *     description: Cập nhật số lượng sản phẩm trong giỏ hàng
  *     tags:
- *          -Admin
+ *       - Admin
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -626,7 +626,7 @@ router.post("/update-cart-product", authToken, updateAddToCartProduct)
  *   post:
  *     description: Xóa sản phẩm khỏi giỏ hàng
  *     tags:
- *          -User
+ *         - User
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -652,7 +652,7 @@ router.post("/delete-cart-product", authToken, deleteAddToCartProduct)
  *   get:
  *     description: Tìm kiếm sản phẩm theo từ khóa
  *     tags:
- *          -User
+ *       - User
  *     parameters:
  *       - in: query
  *         name: keyword
