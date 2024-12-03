@@ -469,7 +469,7 @@ router.post("/product-details", getProductDetails)
  * /search:
  *   get:
  *     description: Tìm kiếm sản phẩm
- *      tags:
+ *     tags:
  *          -User
  *     parameters:
  *       - in: query
@@ -497,7 +497,7 @@ router.get("/search", searchProduct);
  * /filter-product:
  *   post:
  *     description: Lọc sản phẩm theo tiêu chí
- *      tags:
+ *     tags:
  *          -User
  *     parameters:
  *       - in: body
@@ -532,7 +532,7 @@ router.post("/filter-product", filterProductController)
  * /addtocart:
  *   post:
  *     description: Thêm sản phẩm vào giỏ hàng
- *      tags:
+ *     tags:
  *          -Admin
  *     security:
  *       - bearerAuth: []
@@ -562,7 +562,7 @@ router.post("/addtocart", authToken, addToCartController)
  * /countAddToCartProduct:
  *   get:
  *     description: Đếm số lượng sản phẩm trong giỏ hàng
- *      tags:
+ *     tags:
  *          -Admin
  *     security:
  *       - bearerAuth: []
@@ -577,7 +577,7 @@ router.get("/countAddToCartProduct", authToken, countAddToCartProduct)
  * /view-card-product:
  *   get:
  *     description: Xem danh sách sản phẩm trong giỏ hàng
- *      tags:
+ *     tags:
  *          -Admin
  *     security:
  *       - bearerAuth: []
@@ -592,7 +592,7 @@ router.get("/view-card-product", authToken, addToCartViewProduct)
  * /update-cart-product:
  *   post:
  *     description: Cập nhật số lượng sản phẩm trong giỏ hàng
- *      tags:
+ *     tags:
  *          -Admin
  *     security:
  *       - bearerAuth: []
@@ -625,7 +625,7 @@ router.post("/update-cart-product", authToken, updateAddToCartProduct)
  * /delete-cart-product:
  *   post:
  *     description: Xóa sản phẩm khỏi giỏ hàng
- *      tags:
+ *     tags:
  *          -User
  *     security:
  *       - bearerAuth: []
@@ -651,7 +651,7 @@ router.post("/delete-cart-product", authToken, deleteAddToCartProduct)
  * /search:
  *   get:
  *     description: Tìm kiếm sản phẩm theo từ khóa
- *      tags:
+ *     tags:
  *          -User
  *     parameters:
  *       - in: query
@@ -674,8 +674,8 @@ router.get("/search", searchProduct)
  * /filter-product:
  *   post:
  *     description: Lọc sản phẩm theo tiêu chí
- *      tags:
- *          -User  
+ *     tags:
+ *        - User  
  *     parameters:
  *       - in: body
  *         name: filter
