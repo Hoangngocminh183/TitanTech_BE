@@ -229,7 +229,7 @@ router.get("/user-details", authToken, userDetailsController)
  *     summary: Đăng xuất người dùng
  *     description: API này cho phép người dùng đăng xuất khỏi hệ thống bằng cách xóa cookie chứa token.
  *     tags:
- *       - User
+ *       - Admin
  *     responses:
  *       200:
  *         description: Đăng xuất thành công
@@ -277,6 +277,8 @@ router.get("/userLogout", userLogout)
  * /all-user:
  *   get:
  *     description: Lấy danh sách tất cả người dùng (Admin chỉ có quyền)
+ *     tags:
+ *       - Admin
  *     security:
  *       - bearerAuth: []
  *     responses:
@@ -294,6 +296,8 @@ router.get("/all-user", authToken, allUsers)
  * /update-user:
  *   post:
  *     description: Cập nhật thông tin người dùng
+ *     tags:
+ *       - Admin
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -325,6 +329,8 @@ router.post("/update-user", authToken, updateUser)
  * /upload-product:
  *   post:
  *     description: Tải lên sản phẩm mới (Admin chỉ có quyền)
+ *      tags:
+ *       - Admin
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -364,7 +370,9 @@ router.get("/get-product", getProductController)
  * @swagger
  * /update-product:
  *   post:
- *     description: Cập nhật sản phẩm
+ *     description: Cập nhật sản phẩm   
+ *      tags:
+ *       - Admin
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -396,6 +404,8 @@ router.post("/update-product", authToken, updateProductController)
  * /get-categoryProduct:
  *   get:
  *     description: Lấy danh sách các sản phẩm theo danh mục
+ *     tags:
+ *       - User
  *     responses:
  *       200:
  *         description: Thành công
@@ -407,6 +417,8 @@ router.get("/get-categoryProduct", getCategoryProduct)
  * /category-product:
  *   post:
  *     description: Lấy sản phẩm theo danh mục
+ *     tags:
+ *       - User
  *     parameters:
  *       - in: body
  *         name: category
@@ -430,6 +442,8 @@ router.post("/category-product", getCategoryWiseProduct)
  * /product-details:
  *   post:
  *     description: Lấy chi tiết sản phẩm
+ *     tags:
+ *         -User
  *     parameters:
  *       - in: body
  *         name: product
@@ -453,6 +467,8 @@ router.post("/product-details", getProductDetails)
  * /search:
  *   get:
  *     description: Tìm kiếm sản phẩm
+ *      tags:
+ *          -User
  *     parameters:
  *       - in: query
  *         name: q
@@ -479,6 +495,8 @@ router.get("/search", searchProduct);
  * /filter-product:
  *   post:
  *     description: Lọc sản phẩm theo tiêu chí
+ *      tags:
+ *          -User
  *     parameters:
  *       - in: body
  *         name: filters
@@ -512,6 +530,8 @@ router.post("/filter-product", filterProductController)
  * /addtocart:
  *   post:
  *     description: Thêm sản phẩm vào giỏ hàng
+ *      tags:
+ *          -Admin
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -540,6 +560,8 @@ router.post("/addtocart", authToken, addToCartController)
  * /countAddToCartProduct:
  *   get:
  *     description: Đếm số lượng sản phẩm trong giỏ hàng
+ *      Tags:
+ *          -Admin
  *     security:
  *       - bearerAuth: []
  *     responses:
@@ -553,6 +575,8 @@ router.get("/countAddToCartProduct", authToken, countAddToCartProduct)
  * /view-card-product:
  *   get:
  *     description: Xem danh sách sản phẩm trong giỏ hàng
+ *      Tags:
+ *          -Admin
  *     security:
  *       - bearerAuth: []
  *     responses:
@@ -566,6 +590,8 @@ router.get("/view-card-product", authToken, addToCartViewProduct)
  * /update-cart-product:
  *   post:
  *     description: Cập nhật số lượng sản phẩm trong giỏ hàng
+ *      Tags:
+ *          -Admin
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -597,6 +623,8 @@ router.post("/update-cart-product", authToken, updateAddToCartProduct)
  * /delete-cart-product:
  *   post:
  *     description: Xóa sản phẩm khỏi giỏ hàng
+ *      Tags:
+ *          -User
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -621,6 +649,8 @@ router.post("/delete-cart-product", authToken, deleteAddToCartProduct)
  * /search:
  *   get:
  *     description: Tìm kiếm sản phẩm theo từ khóa
+ *      Tags:
+ *          -User
  *     parameters:
  *       - in: query
  *         name: keyword
@@ -642,6 +672,8 @@ router.get("/search", searchProduct)
  * /filter-product:
  *   post:
  *     description: Lọc sản phẩm theo tiêu chí
+ *      Tags:
+ *          -User  
  *     parameters:
  *       - in: body
  *         name: filter
