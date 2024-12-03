@@ -166,7 +166,7 @@ router.post("/signin", userSignInController)
  *     summary: Lấy thông tin chi tiết người dùng
  *     description: API này trả về thông tin chi tiết của người dùng dựa trên JWT token.
  *     tags:
- *       - User
+ *       - Admin
  *     security:
  *       - bearerAuth: [] # JWT Authentication
  *     responses:
@@ -229,7 +229,7 @@ router.get("/user-details", authToken, userDetailsController)
  *     summary: Đăng xuất người dùng
  *     description: API này cho phép người dùng đăng xuất khỏi hệ thống bằng cách xóa cookie chứa token.
  *     tags:
- *       - Admin
+ *       - User
  *     responses:
  *       200:
  *         description: Đăng xuất thành công
@@ -360,6 +360,8 @@ router.post("/upload-product", authToken, UploadProductController)
  * /get-product:
  *   get:
  *     description: Lấy danh sách tất cả sản phẩm
+ *      tags:
+ *         - User
  *     responses:
  *       200:
  *         description: Thành công
@@ -372,7 +374,7 @@ router.get("/get-product", getProductController)
  *   post:
  *     description: Cập nhật sản phẩm   
  *      tags:
- *       - Admin
+ *        - Admin
  *     security:
  *       - bearerAuth: []
  *     parameters:
